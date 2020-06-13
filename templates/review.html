@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{books.title}}
+{% endblock %}
+
+{% block body %}
+
+  	<h1>{{books.title}}</h1>
+    <h3>written by:{{books.author}}</h3>
+    <h3>written in:{{books.year}}</h3>
+    <h3>ISBN:{{books.isbn}}</h3>
+
+    <h1>Leave a review</h1>
+    <form action="{{ url_for('reviewpost') }}" method="post">
+        <div class="form-group">
+            <select class="form-control" name="score">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="comment" placeholder="Write a comment">
+        </div>
+        <div class="form-group">
+            <select class="form-control" name="books">
+                    <option value="{{ books.isbn}}">{{ books.isbn}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Leave review</button>
+        </div>
+    </form>
+    <h2>REVIEWS FROM USERS:</h2>
+    <ul>
+        {% for review in reviews %}
+            <li>Score: {{ review.score }}, comment: {{ review.text }}</li>
+        {% else %}
+            <li>No Reviews.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>REVIEWS FROM GOODSREAD:</h2>
+    <ul>
+        {% if not average_rating %}
+            <li>No Reviews.</li>
+        {% else %}
+            <li>average Rating: {{average_rating}}</li>
+        {% endif %}
+    </ul>
+{% endblock %}

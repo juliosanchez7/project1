@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Flights
+{% endblock %}
+
+{% block body %}
+    <h1>{{message}}</h1>
+    <a href="{{ url_for('index') }}">Go home</a>
+    <br>
+    <a href="{{ url_for('search') }}">Go lists books </a>
+{% endblock %}

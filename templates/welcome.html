@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome {{username}}</h1>
+    <a href="{{ url_for('search', username=username) }}">
+        Search books, {{username }}
+    </a>
+{% endblock %}

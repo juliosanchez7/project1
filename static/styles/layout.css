@@ -1,0 +1,10 @@
+#Body {
+  background-position: center;
+  background-size: cover;
+  background-image: url("background.jpg");
+  min-height: 100%;
+  margin: 30px;
+  padding: 20px;
+  color: #39CEBC;
+  font-family: Lucida Console, Courier, monospace;
+}
